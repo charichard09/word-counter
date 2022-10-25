@@ -14,6 +14,9 @@ function wordCounter(text) {
 }
 
 function numberOfOccurrencesInText(word, text) {
+  if (word.trim().length === 0) {
+    return 0;
+  }
   const textArray = text.split(" ");
   let wordCount = 0;
   textArray.forEach(function(element) {
@@ -23,62 +26,6 @@ function numberOfOccurrencesInText(word, text) {
   });
   return wordCount;
 }
-
-function omitBleep(badWord, textPassage) {
-  const badWord = "zoinks muppeteer biffaroni loopdaloop";
-  const textPassage = "hello muppeteer, this is ZoInks. Stop your biffaroni and start doing the loopdaloop.";
-  
-  let textPassageArray = textPassage.split(" ");
-  const badWordArray = badWord.split(" ");
-  
-
-  badWordArray.forEach(function(word) {
-    
-}
-  let newBadWordArray = [];
-  badWordArray.forEach(function(word) {
-    newBadWordArray.push(word.toUpperCase());
-  });
-
-  let newArray =[];
-
-  textPassageArray.forEach(function(text) {
-    //for each text, if it is included in badArray, True, do nothing
-    if (!newBadWordArray.includes(!text.toUpperCase())) {
-      newArray.push(text)
-    //if text is not included in badArray, false, go to else, push text to newArray
-    }
-    //bottom of loop to go to next text word in textPassageArr
-  });
-
-  return newArray.join(" ");
-}
-
-
-// UI Logic
-Co-authored-by: Brian Noh <noh24@ymail.com>
-
-
-
-//base form that removes bad words with 0 punctuation
-function omitBleep(badWord, textPassage) {
-  let textPassageArray = textPassage.split(" ");
-  let newArray =[];
-  
-  textPassageArray.forEach(function(text) {
-    //"muppeteer".includes("muppeteer,")
-    if (badWord.includes(text)) {
-      //do nothing
-    } else {
-      newArray.push(text)
-    }
-  });
-
-  return newArray.join(" ");
-}
-
-
-
 
 function omitPunctuation(text) {
   const punctuation = [",", ".", "!", "?"];
@@ -111,3 +58,18 @@ function omitBleep(badWord, textPassage) {
 
   return newArray.join(" ");
 }
+
+// UI Logic
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const passage = document.getElementById("text-passage").value;
+  const word = document.getElementById("word").value;
+  const wordCount = wordCounter(passage);
+  const occurrencesOfWord = numberOfOccurrencesInText(word, passage);
+  document.getElementById("total-count").innerText = wordCount;
+  document.getElementById("selected-count").innerText = occurrencesOfWord;
+}
+
+window.addEventListener("load", function() {
+  document.querySelector("form#word-counter").addEventListener("submit", handleFormSubmission);
+});
