@@ -24,8 +24,14 @@ function numberOfOccurrencesInText(word, text) {
   return wordCount;
 }
 
-function omitBleep() {
-  
+function omitBleep(badWord, textPassage) {
+  let textPassageArray = textPassage.split(" ");
+  textPassageArray.forEach(function(text){
+    
+  });
+
+  //textPassage.toUpperCase().replaceAll(badWord.toUpperCase(), '').trim();
+  return 
 }
 
 // UI Logic

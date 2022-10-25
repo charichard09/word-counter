@@ -63,9 +63,34 @@ numberOfOccurrencesInText(word, text);
 Expected Output: 4
 
 
+<!-- function -->
+<!-- omit offensive language -->
+<!-- include 4 specifics: zoinks, muppeteer, biffaroni, and loopdaloop -->
 Describe: omitBleep()
 
-Test: 
-Code:
+Test: "It should return '' if 'zoinks' === 'zoinks'"
+Code: 
+const badWord = "zoinks";
+const textPassage = "zoinks"
+omitBleep(badWord, textPassage)
+Expected Output: "";
 
+Test: "It should omit 'zoinks' if 'zoinks' appears in 'hello zoinks"
+Code: 
+const badWord = "zoinks";
+const textPassage = "hello zoinks"
+omitBleep(badWord, textPassage)
+Expected Output: "hello";
+
+Test: "It should omit 'ZoInKs' regardless of case"
+Code: 
+const badWord = "ZoInKs"
+const textPassage = "hello ZoInKs"
+omitBleep(badWord, textPassage)
+Expected Output: "hello"
+
+Test: 
+Code: 
+
+omitBleep(badWord, textPassage)
 Expected Output: 
