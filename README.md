@@ -61,3 +61,11 @@ const text = "red blue red red red green";
 const word = "red";
 numberOfOccurrencesInText(word, text);
 Expected Output: 4
+
+
+Describe: omitBleep()
+
+Test: 
+Code:
+
+Expected Output: 
