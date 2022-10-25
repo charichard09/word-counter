@@ -89,8 +89,16 @@ const textPassage = "hello ZoInKs"
 omitBleep(badWord, textPassage)
 Expected Output: "hello"
 
-Test: 
+Test: "It should replace badWords in textPassage with empty string" 
 Code: 
-
+const badWord = "ZoInks"
+const textPassage = "hello, world, this is ZoInks O'Clock";
 omitBleep(badWord, textPassage)
-Expected Output: 
+Expected Output: "hello, world, this is  O'Clock"; 
+
+Test: "It should replace collection of badWord in textPassage with empty string" 
+Code: 
+const badWord = "zoinks muppeteer biffaroni loopdaloop";
+const textPassage = "hello muppeteer, this is ZoInks. Stop your biffaroni and start doing the loopdaloop.";
+omitBleep(badWord, textPassage)
+Expected Output: "hello muppeteer, this is ZoInks. Stop your and start doing the"; 
