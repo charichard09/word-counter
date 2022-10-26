@@ -10,10 +10,10 @@ function mostUsedWords(textPassage) {
 
   // Business Logic
   const commonWordsObject = {};                                                // create object to contain words as property, number of occurences as value
-
+                                                                               // I am using an Object to store each word in textPassage as a property and to
+                                                                               // give that word a value of how many occurences in the textPassage
   
   const textArray = textPassage.split(" ");                                    // split textPassage into an array of individual words
-  
   
   textArray.forEach(function(word){                                            // forEach loop through each word
 
