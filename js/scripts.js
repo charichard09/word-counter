@@ -18,8 +18,9 @@ function mostUsedWords(textPassage) {
   textArray.forEach(function(word){                                            // forEach loop through each word
 
     if (!Object.hasOwn(commonWordsObject, word.toLowerCase())) {               // Object.hasOwn(Obj, property) will return true if Obj has property already,
-                                                                               // if word.lowerCased is NOT (!) in commonWordsObject, then execute if statement
-                                                                               // assign commonWordsObject[word.lowerCased] with number of occurrences derived from the function
+                                                                               // if word.lowerCased is NOT (!) in commonWordsObject, then execute "if statement" block,
+                                                                               // assigning commonWordsObject[word.lowerCased] with number of occurrences returned from the 
+                                                                               // callback to numberOfOccurencesInText()
     commonWordsObject[word.toLowerCase()] = numberOfOccurrencesInText(word, textPassage);
     }                                                                          // repeat loop for each word, checking if it isnt in commonWordsObj, and if it is not,
                                                                                // add word to commonWordsObj as a property and assign its value numberOfOccurencesInText() 
@@ -31,12 +32,12 @@ function mostUsedWords(textPassage) {
 
   let sorted = entries.sort(function (a, b) { return a[1] - b[1]}).reverse();  // sort() will default to sorting alphabetically, to sort numerically, use the compareFunction
                                                                                // parameter like so: sort('function (a, b) {return a - b}'): 
-                                                                               // this will compare every 2 elements to eachother, if elementA - elementB is negative (a - b), 
+                                                                               // this will compare every 2 elements to eachother, if elementA - elementB is negative (i.e. a - b), 
                                                                                // it will sort elementB before elementA. If elementA - element B is zero, or positive
                                                                                // sort will do nothing and move on to check the next elements.  
-                                                                               // Because our array has nested arrays as elements, we specify to sort by our number 
-                                                                               // values with syntax {return a[1] - b[1]} since a[0] and b[0] are our property strings.
-                                                                               // after we finish sorting entries from lowest - highest, we reverse() it then assign it to sorted
+                                                                               // Because our array has nested arrays as elements ([["hi", 3]...]), we specify to sort each element 
+                                                                               // by our number value inside our element with syntax {return a[1] - b[1]} since a[0] and b[0] are our property 
+                                                                               // strings. after we finish sorting entries from lowest - highest, we reverse() it then assign it to sorted
 
   sorted.forEach(function(entry) {                                             // this says loop through the sorted array, for each entry (which is an array of [property, value])
                                                                                // append the text of property (entry[0]), concatenated with value (entry[1].toString) to h3 element 
