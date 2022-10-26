@@ -18,10 +18,10 @@ function mostUsedWords(textPassage) {
   textArray.forEach(function(word){                                            // forEach loop through each word
 
     if (!Object.hasOwn(commonWordsObject, word.toLowerCase())) {               // Object.hasOwn(Obj, property) will return true if Obj has property already,
-                                                                               // if word.lowerCased is NOT (!) in commonWordsObject, then execute "if statement" block,
-                                                                               // assigning commonWordsObject[word.lowerCased] with number of occurrences returned from the 
+                                                                               // if word.lowerCased is NOT (!) in commonWordsObject, then execute "if statement" block
+
+    commonWordsObject[word.toLowerCase()] = numberOfOccurrencesInText(word, textPassage);  // assign commonWordsObject[word.lowerCased] with number of occurrences returned from the 
                                                                                // callback to numberOfOccurencesInText()
-    commonWordsObject[word.toLowerCase()] = numberOfOccurrencesInText(word, textPassage);
     }                                                                          // repeat loop for each word, checking if it isnt in commonWordsObj, and if it is not,
                                                                                // add word to commonWordsObj as a property and assign its value numberOfOccurencesInText() 
   });
