@@ -107,5 +107,52 @@ Test: "It should replace collection of badWord in textPassage with empty string"
 Code: 
 const badWord = "zoinks muppeteer biffaroni loopdaloop";
 const textPassage = "hello muppeteer, this is ZoInks. Stop your biffaroni and start doing the loopdaloop.";
-omitBleep(badWord, textPassage)
+omitBleep(badWord, textPassage);
 Expected Output: "hello muppeteer, this is ZoInks. Stop your and start doing the"; 
+
+Describe: boldPassage()
+
+Test: "It should return null if no word or text is entered"
+Code: 
+const text = "";
+const word = "";
+boldPassage(word, text);
+Expected Output: null
+
+Test: "If text is "He", should return an element object of p with no matches"
+Code: 
+const text = "He";
+const word = "world";
+boldPassage(word, text);
+Expected Output: <p>He</p>
+
+Test: "It should return a matching word in a strong tag"
+Code: 
+const word = "world";
+const text = "text";
+boldPassage(word, text);
+Expected Output:<p><strong>world</strong><p>
+
+Test: "It should wrap words that match in strong tags but not words that don't."
+Code: 
+const word = "world";
+const text = "Hello, world";
+boldPassage(word, text);
+Expected Output: <p>Hello, <strong>world</strong></p>
+
+<!-- Write a function that returns how many times a word is used in textPassage
+then organize by most used to least -->
+Describe: mostUsedWords()
+
+Test: "'Hi there hey yo hi hi yay yo whoa there whoa yay' should return 1 with word = yo"
+Code: 
+textPassage = "Hi there hey yo hi hi yay yo whoa there whoa yay"
+word = "yo"
+mostUsedWords(word, text);
+Expected Output: 1
+
+Test: "
+Code: 
+
+boldPassage(word, text);
+Expected Output:
