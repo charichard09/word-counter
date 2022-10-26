@@ -9,8 +9,8 @@ function mostUsedWords(textPassage) {
   document.getElementById("most-common-words").append(mostCommonH3);
 
   // Business Logic
-  const commonWordsObject = {};                                                // create object to contain words as property, number of occurences as value
-                                                                               // I am using an Object to store each word in textPassage as a property and to
+  const commonWordsObject = {};                                                // create my own object (reminder that an object is just a collection of methods, properties
+                                                                               // and their values), to store each word in textPassage as a property and to
                                                                                // give that word a value of how many occurences in the textPassage
   
   const textArray = textPassage.split(" ");                                    // split textPassage into an array of individual words
